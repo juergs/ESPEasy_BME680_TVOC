@@ -60,5 +60,6 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 <br>
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/BME680_Me%C3%9Fwerte_mit_Kalman_Filter_4.png" height="300"/>
 <br>
-    
+<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/EspEasy_Devices.png" height="300"/>    
+<br>
     
