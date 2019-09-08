@@ -57,6 +57,7 @@ Download of an actual ESPEasy-Version.
 Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compile.
 
 <h2>Hints and errror fixing</h2>
+*   the file _P119_BME680.ino is chosen for replace playground version for bm680.
 *   overwrite eventually existing file from playgound with "Arduino: add file: _P119_BME680.ino" <br>
 *   overwrite ESPEasy\EspEasy.ino file with the Versio of this project.<br>
 *   in case of having trouble with Arduino public libraries:     <br>
