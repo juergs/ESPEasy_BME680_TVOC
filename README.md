@@ -46,10 +46,10 @@ Download of an actual ESPEasy-Version.
 Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compile.
 
 <h2>Hints and errror fixing</h2>
-*   overwrite eventually existing file from playgound with "Arduino: add file: _P119_BME680.ino"
-*   overwrite ESPEasy\EspEasy.ino file with the Versio of this project.
-*   in case of having trouble with Arduino public libraries:     
-    Change default Arduino libraries-folder in i.e.  * *C:\Users\js\Documents\Arduino\libraries* * to i.e.  * *D:\Temp\ESPEasy-mega.org\lib* *. Exclusively to ESPEasy-Lib-Folder!  
-* in order to achieve this (as admin):  **mklink /D libraries D:\Temp\ESPEasy-mega.org\lib** with command prompt in default Arduino-project-folder 
-* SPIFFS settings -> from "none" to minimal "1M" 
-* reset ESP two times.
+*   overwrite eventually existing file from playgound with "Arduino: add file: _P119_BME680.ino" <br>
+*   overwrite ESPEasy\EspEasy.ino file with the Versio of this project.<br>
+*   in case of having trouble with Arduino public libraries:     <br>
+    Change default Arduino libraries-folder in i.e.  * *C:\Users\js\Documents\Arduino\libraries* * to i.e.  * *D:\Temp\ESPEasy-mega.org\lib* *. Exclusively to ESPEasy-Lib-Folder!  <br>
+* in order to achieve this (as admin):  **mklink /D libraries D:\Temp\ESPEasy-mega.org\lib** with command prompt in default Arduino-project-folder <br>
+* SPIFFS settings -> from "none" to minimal "1M" <br>
+* reset ESP two times.<br>
