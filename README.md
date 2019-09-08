@@ -61,7 +61,7 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 <h2>Hints and errror fixing</h2>
 *   the file _P119_BME680.ino is chosen for replace playground version for bm680.
 *   overwrite eventually existing file from playgound with "Arduino: add file: _P119_BME680.ino" <br>
-*   overwrite ESPEasy\EspEasy.ino file with the Versio of this project.<br>
+*   overwrite ESPEasy\EspEasy.ino file with the Version of this project.<br>
 *   in case of having trouble with Arduino public libraries:     <br>
     Change default Arduino libraries-folder in i.e. <i>C:\Users\js\Documents\Arduino\libraries</i> to i.e.  <i>D:\Temp\ESPEasy-mega.org\lib</i>. (Setting Arduino-configuration of libraries exclusively to ESPEasy-Lib-Folder!)<br>
 * in order to achieve this (as admin): <b>mklink /D libraries D:\Temp\ESPEasy-mega.org\lib</b> with command prompt in default Arduino-project-folder <br>
