@@ -7,6 +7,8 @@ These additional bold libraries are needed for using BME680-Sensor in ESPEasy **
 <br>**Adafruit_Unified_Sensor**
 <br>**js_BME680_prod**
 <br>**Adafruit_Sensor**
+
+<u>These were part of the regular distribution:</u>
 <br>Adafruit_Motor_Shield_V2
 <br>Adafruit_MPR121
 <br>Adafruit_NeoPixel
