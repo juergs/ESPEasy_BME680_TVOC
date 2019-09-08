@@ -38,3 +38,18 @@ These additional bold libraries are needed for using BME680-Sensor in ESPEasy **
 <br>SerialDevices
 <br>SparkFun_APDS-9960_Sensor_Arduino_Library
 <br>TinyGPSPlus-1.0.2
+
+<h2>Requirements</h2>
+Breakout-Board @I2C-address 0x76
+Regular ESP8266-Board as nodeMCU or Wemos D1+D2 mini
+Download of an actual ESPEasy-Version.
+Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compile.
+
+<h2>Hints and errror fixing</h2>
+*   overwrite eventually existing file from playgound with "Arduino: add file: _P119_BME680.ino"
+*   overwrite ESPEasy\EspEasy.ino file with the Versio of this project.
+*   in case of having trouble with Arduino public libraries:     
+    Change default Arduino libraries-folder in i.e.  * *C:\Users\js\Documents\Arduino\libraries* * to i.e.  * *D:\Temp\ESPEasy-mega.org\lib* *. Exclusively to ESPEasy-Lib-Folder!  
+* in order to achieve this (as admin):  **mklink /D libraries D:\Temp\ESPEasy-mega.org\lib** with command prompt in default Arduino-project-folder 
+* SPIFFS settings -> from "none" to minimal "1M" 
+* reset ESP two times.
