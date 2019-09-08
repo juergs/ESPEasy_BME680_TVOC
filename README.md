@@ -64,7 +64,7 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 *   overwrite ESPEasy\EspEasy.ino file with the Versio of this project.<br>
 *   in case of having trouble with Arduino public libraries:     <br>
     Change default Arduino libraries-folder in i.e. <i>C:\Users\js\Documents\Arduino\libraries</i> to i.e.  <i>D:\Temp\ESPEasy-mega.org\lib</i>. (Setting Arduino-configuration of libraries exclusively to ESPEasy-Lib-Folder!)<br>
-* in order to achieve this (as admin):  **mklink /D libraries D:\Temp\ESPEasy-mega.org\lib** with command prompt in default Arduino-project-folder <br>
+* in order to achieve this (as admin): <b>mklink /D libraries D:\Temp\ESPEasy-mega.org\lib</b> with command prompt in default Arduino-project-folder <br>
 * SPIFFS settings -> from "none" to minimal "1M" <br>
 * reset ESP two times.<br>
 <h2>Pictures<h2>
