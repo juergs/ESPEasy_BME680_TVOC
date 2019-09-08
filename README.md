@@ -4,14 +4,15 @@ ESPEasy_BME680_TVOC without need of proprietary BSEC static lib
 These additional bold libraries are needed for using BME680-Sensor:
 
 **Adafruit_BME680_Library**<br>
+<br>**Adafruit_Unified_Sensor**
+<br>**js_BME680_prod**
+<br>**Adafruit_Sensor**
 <br>Adafruit_Motor_Shield_V2
 <br>Adafruit_MPR121
 <br>Adafruit_NeoPixel
-<br>**Adafruit_Sensor**
 <br>Adafruit_SGP30-1.0.0.13
 <br>Adafruit_TCS34725
 <br>Adafruit_TSL2591
-<br>**Adafruit_Unified_Sensor**
 <br>AM2320
 <br>ArduinoJson-6.x
 <br>ArduinoTrace
@@ -26,7 +27,6 @@ These additional bold libraries are needed for using BME680-Sensor:
 <br>HT16K33
 <br>I2Cdevlib
 <br>IRremoteESP8266
-<br><style color:"red">**js_BME680_prod**</style>
 <br>LiquidCrystal_I2C
 <br>MechInputs
 <br>NewPingESP8266
