@@ -26,7 +26,7 @@ These additional bold libraries are needed for using BME680-Sensor:
 <br>HT16K33
 <br>I2Cdevlib
 <br>IRremoteESP8266
-<br>**js_BME680_prod**
+<br><font color:"red">**js_BME680_prod**</font>
 <br>LiquidCrystal_I2C
 <br>MechInputs
 <br>NewPingESP8266
