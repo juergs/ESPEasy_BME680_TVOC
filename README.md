@@ -3,7 +3,7 @@ ESPEasy_BME680_TVOC without need of proprietary BSEC static lib
 
 These additional bold libraries are needed for using BME680-Sensor:
 
-**Adafruit_BME680_Library**<br>
+**Adafruit_BME680_Library**
 <br>**Adafruit_Unified_Sensor**
 <br>**js_BME680_prod**
 <br>**Adafruit_Sensor**
