@@ -13,11 +13,11 @@ Many thanks to Jörg, having done the basic work.
 
 Use I2C Interface D1 and D2 of ESP8266. Set SD0 to Low for 0x76 address.
 
-ESP12E-----------BME680 @ 0x76 (SDO = GND)
-GND------------>GND
-3.3V------------>3.3V
-D2------------>SDA
-D1------------>SCL
+ESP12E ----------- BME680 @ 0x76 (SDO = GND)
+<br>GND ------------> GND
+<br>3.3V ------------> 3.3V
+<br>D2 ------------> SDA
+<br>D1 ------------> SCL
 
 <h2>Libraries</h2>
 These additional bold libraries are needed for using BME680-Sensor in ESPEasy \lib-folder.:
