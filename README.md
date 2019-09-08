@@ -6,7 +6,7 @@ Available BME680-Libraies use only Gas-Resistance as output of IAQ.
 This is not usable. Therefore  we use our own calculaio of tVoc with output in ppm units.
 Many thanks to Jörg, having done the basic work. 
 <br>See him @ https://github.com/herrmannj .
-Initial work is done within the FHEM (german home automation forum) in 
+<br>Initial work is done within the FHEM (german home automation forum) in 
 <br>https://forum.fhem.de/index.php/topic,78619.msg972248.html#msg972248
 <br>or  here:
 <br>https://forum.fhem.de/index.php?topic=96241.285
