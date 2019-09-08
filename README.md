@@ -11,7 +11,7 @@ Many thanks to Jörg, having done the basic work.
 <br>or  here:
 <br>https://forum.fhem.de/index.php?topic=96241.285
 
-USE I2C INTERFACING TO D1 and D2 of ESP8266. 
+Use I2C Interface D1 and D2 of ESP8266. Set SD0 to Low for 0x76 address.
 
 <h2>Libraries</h2>
 These additional bold libraries are needed for using BME680-Sensor in ESPEasy **\lib**-folder.:
