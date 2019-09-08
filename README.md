@@ -1,6 +1,16 @@
 # ESPEasy_BME680_TVOC
 <h2>ESPEasy_BME680_TVOC without need of proprietary BSEC static lib </h2>
 
+<h2>Objective</h2>
+Available BME680-Libraies use only Gas-Resistance as output of IAQ. 
+This is not usable. Therefore  we use our own calculaio of tVoc with output in ppm units.
+Many thanks to Jörg, having done the basic work. See him @https://github.com/herrmannj .
+Initial work is done within the FHEM (german home automation forum) in 
+https://forum.fhem.de/index.php/topic,78619.msg972248.html#msg972248
+or  here:
+https://forum.fhem.de/index.php?topic=96241.285
+
+<h2>Libraries</h2>
 These additional bold libraries are needed for using BME680-Sensor in ESPEasy **\lib**-folder.:
 
 **Adafruit_BME680_Library**
