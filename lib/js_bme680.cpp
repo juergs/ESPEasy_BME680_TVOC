@@ -17,50 +17,50 @@
   // bool            useArduinoPlotOutput  = false;
   // bool            useArduinoDebugOutput = true; 
 
-  float           tVoc = 0; 
-  float           resFiltered;                          // low pass
-  float           aF = 0;
-  	
-  unsigned long   prevBme680Millis    = millis();           	// counter main loop for BME 680
-	unsigned long   intervalBme680      = 10000;              	// 10 sec update interval default
-	bool            bme680VocValid      = false;              	// true if filter is initialized, ramp-up after start
-	char            bme680Msg[128];                           	// payload
-  bool            _isValidIaq         = false;                // redundance to bme680VocValid?
-	
-	//--- automatic baseline correction
-	uint32_t        bme680_baseC        = 0;                	// highest adjusted r (lowest voc) in current time period
-	float           bme680_baseH        = 0;                	// abs hum (g/m3)
-	unsigned long   prevBme680AbcMillis = 0;      			      // ts of last save to nv 
-	unsigned long   intervalBme680NV    = 604800000; 			    // 7 days of ms
-	uint8_t         bDelay              = 0;  
-  uint16_t        pressureSeaLevel    = 1013.25;            //default value of 1013.25 hPa  
+    float           tVoc = 0; 
+    float           resFiltered;                          // low pass
+    float           aF = 0;
+    
+    unsigned long   prevBme680Millis    = millis();             // counter main loop for BME 680
+    unsigned long   intervalBme680      = 10000;                // 10 sec update interval default
+    bool            bme680VocValid      = false;                // true if filter is initialized, ramp-up after start
+    char            bme680Msg[128];                             // payload
+    bool            _isValidIaq         = false;                // redundance to bme680VocValid?
+    
+    //--- automatic baseline correction
+    uint32_t        bme680_baseC        = 0;                    // highest adjusted r (lowest voc) in current time period
+    float           bme680_baseH        = 0;                    // abs hum (g/m3)
+    unsigned long   prevBme680AbcMillis = 0;                      // ts of last save to nv 
+    unsigned long   intervalBme680NV    = 604800000;                // 7 days of ms
+    uint8_t         bDelay              = 0;  
+    uint16_t        pressureSeaLevel    = 1013.25;            //default value of 1013.25 hPa  
 
-	struct 
-	{ 
-		float         t_offset            = -.5;                 // offset temperature sensor
-		float         h_offset            = 1.5;                 // offset humitidy sensor	
-		uint32_t      vocBaseR            = 0;                   // base value for VOC resistance clean air, abc 
-		uint32_t      vocBaseC            = 0;                   // base value for VOC resistance clean air, abc  
-		float         vocHum              = 0;                   // reserved, abc
-		uint32_t      signature           = 0x49415143;          // 'IAQC'
-	} preload, param;     							        //--- stable new baseline counter (avoid short-term noise)    
+    struct 
+    { 
+        float         t_offset            = -.5;                 // offset temperature sensor
+        float         h_offset            = 1.5;                 // offset humitidy sensor  
+        uint32_t      vocBaseR            = 0;                   // base value for VOC resistance clean air, abc 
+        uint32_t      vocBaseC            = 0;                   // base value for VOC resistance clean air, abc  
+        float         vocHum              = 0;                   // reserved, abc
+        uint32_t      signature           = 0x49415143;          // 'IAQC'
+    } preload, param;                                       //--- stable new baseline counter (avoid short-term noise)    
 
-	typedef struct 
-	{ 		
-    float   fTemp         = 0.0; 		
-    float   fHum          = 0.0; 		
-    float   fAbsHum       = 0.0;		
-    float   fPress        = 0.0;		
-    float   fTvoc         = 0.0;
-    float   fTvocEst      = 0.0;                // Kalman filtered value 
-    float   fDew          = 0.0;		
-    float   fGas          = 0.0;		
-    float   fAlt          = 0.0;    
-    float   fAltCalib     = 0.0;
-    float   fSeaLevel     = 0.0; 
-	} GDATA_TYP; 
-	
-	GDATA_TYP gdata;   
+    typedef struct 
+    {       
+        float   fTemp         = 0.0;        
+        float   fHum          = 0.0;        
+        float   fAbsHum       = 0.0;        
+        float   fPress        = 0.0;        
+        float   fTvoc         = 0.0;
+        float   fTvocEst      = 0.0;                // Kalman filtered value 
+        float   fDew          = 0.0;        
+        float   fGas          = 0.0;        
+        float   fAlt          = 0.0;    
+        float   fAltCalib     = 0.0;
+        float   fSeaLevel     = 0.0; 
+    } GDATA_TYP; 
+    
+    GDATA_TYP gdata;   
 
 
 
@@ -112,7 +112,7 @@ bool   JS_BME680Class::isIAQValid()
 {
     return(_isValidIaq); 
 }
-//----------------------------------------------------------------------	
+//----------------------------------------------------------------------    
 float JS_BME680Class::getTemp(void)
 {
     return (gdata.fTemp) ; 
@@ -150,7 +150,7 @@ float JS_BME680Class::getSeaLevel()
     return ((float) BME680_SEALEVEL) ; 
 }
 //----------------------------------------------------------------------
-float 	JS_BME680Class::getTVoc(void)
+float   JS_BME680Class::getTVoc(void)
 {
     if (useFilteredTvocOutput)
     {
@@ -272,7 +272,7 @@ void JS_BME680Class::getBme680Readings()
     if (!bme680VocValid ) 
     {
       #ifdef BME680_DEBUG
-       Serial.print(F("\tJS_BME680.bme680VocValid not ready! Wait about 300 sec (5 min) to warm up ... " ));  Serial.println( ( (300000 - millis() ) / 1e3), 0 ); 
+        Serial.print(F("\tJS_BME680.bme680VocValid not ready! Wait about 300 sec (5 min) to warm up ... " ));  Serial.println( ( (300000 - millis() ) / 1e3), 0 ); 
       #endif
       return;
     }
