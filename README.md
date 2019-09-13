@@ -83,4 +83,6 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 <br>
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/EspEasy_Devices.png" height="300"/>    
 <br>
-    
+
+<h2>Contribution</h2>
+Every Contribution to this repository is highly appriciated! Don't fear to create pull requests which enhance or fix the library as ultimatly you are going to help everybody.
