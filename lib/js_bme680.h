@@ -13,6 +13,7 @@
 
     //--- include Adafruit lib, which could be found at Github
     #include <Adafruit_BME680.h>      //--- Adafruit BME680 library  
+    #include <bme680_defs.h>      //--- Adafruit BME680 library  
 
     #define DEBUG_SERIAL    1
 
