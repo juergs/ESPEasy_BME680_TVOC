@@ -90,22 +90,22 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 Are found in \dist-folder of EspEasy.
 
 <h2> EspEasy </h2>
-1. Download firmware as binary including flash tool
-↓
-2. Connect the ESP to Windows PC
-Using either USB/UART of board or separate USB/TTL adapter
-↓
-3. Write firmware using flash tool
-Note necessity for GPIO to be LOW to enter flashmode
-↓
-4. Restart ESP. WiFi AP "ESP_Easy_0" will appear, password: configesp
-(prior to 2.0 the AP was named ESP_0)
-If you're not automatically taken to the log-in page, browse to 192.168.4.1
-↓
-5. Search for you routers WiFi and connect
-(if you have multiple AP they will all show up with the same SSID name multiple times)
-↓
-6. Reconnect to your WiFi and enter IP adress shown on previous screen    
+1. Download firmware as binary including flash tool <br>
+↓<br>
+2. Connect the ESP to Windows PC<br>
+Using either USB/UART of board or separate USB/TTL adapter<br>
+↓<br>
+3. Write firmware using flash tool<br>
+Note necessity for GPIO to be LOW to enter flashmode<br>
+↓<br>
+4. Restart ESP. WiFi AP "ESP_Easy_0" will appear, password: configesp<br>
+(prior to 2.0 the AP was named ESP_0)<br>
+If you're not automatically taken to the log-in page, browse to 192.168.4.1<br>
+↓<br>
+5. Search for you routers WiFi and connect<br>
+(if you have multiple AP they will all show up with the same SSID name multiple times)<br>
+↓<br>
+6. Reconnect to your WiFi and enter IP adress shown on previous screen    <br>
     
 <h2>Contribution</h2>
 Every Contribution to this repository will be highly appreciated! 
