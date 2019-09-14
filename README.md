@@ -1,6 +1,6 @@
 # ESPEasy_BME680_TVOC
-<h2>ESPEasy_BME680_TVOC without need of proprietary BSEC static lib. 
-Special ESPEasy-Version for BME680-Measurement of TVOC in [ppm]. 
+<h2>ESPEasy_BME680_TVOC without need of proprietary BSEC static lib.<br> 
+Special ESPEasy-Version for BME680-Measurement of TVOC in [ppm].<br>
 Using a modified <b><em>_P119_BME680.ino</em></b>-Version. </h2>
 
 <h2>Objective</h2>
