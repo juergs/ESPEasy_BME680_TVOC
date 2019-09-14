@@ -1,5 +1,7 @@
 # ESPEasy_BME680_TVOC
-<h2>ESPEasy_BME680_TVOC without need of proprietary BSEC static lib </h2>
+<h2>ESPEasy_BME680_TVOC without need of proprietary BSEC static lib. 
+Special ESPEasy-Version for BME680-Measurement of TVOC in [ppm]. 
+Using a modified <b><em>_P119_BME680.ino</em></b>-Version. </h2>
 
 <h2>Objective</h2>
 Available BME680-Libraies use only Gas-Resistance as output of IAQ. 
