@@ -43,6 +43,8 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
 {
   boolean success = false;
 
+
+
   switch (function)
   {
     case PLUGIN_DEVICE_ADD:
@@ -242,7 +244,7 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
               t_offs = (float) PCONFIG(4);             
             }  
             
-            // --- HUM-offset 
+            // --- TVOCFiltered
             bool use_filtered_tvoc = false; 
             if (PCONFIG(2) != 0) 
             {
@@ -269,14 +271,17 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
             success = true;
             break;
         }
+        //-------------------------------------------------------------------------------------------------------
         //--- this code is done by having initialized BME680 on first read and not on instanciating class object! 
         //--- is established after 2nd Reading, after initialize with do_begin()-method. 
         //--- using above set parameters as as bme680 startup!
+        //-------------------------------------------------------------------------------------------------------
         if (Plugin_119_init)
         {
               JS_BME680.do_bme680_measurement();  
 
-              addLog(LOG_LEVEL_ERROR, F("BME680-Read :  performed reading!"));              
+              addLog(LOG_LEVEL_INFO, F("BME680-Read: performed measurement!"));              
+              
               bool debugEnabled = (uint8_t) PCONFIG(6);
               if (debugEnabled) 
                 Serial.println(F("PLUGIN_Read: JS_BME680 : init done, measure!"));
@@ -292,11 +297,31 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
               //JS_BME680.do_bme680_measurement();
             //   prevTime = currentMillis; 
             // }          
+
+
+            //--- pass measurements to ESPEasy            
             UserVar[event->BaseVarIndex + 0] = JS_BME680.getTemp(); 
             UserVar[event->BaseVarIndex + 1] = JS_BME680.getHum();
             UserVar[event->BaseVarIndex + 2] = JS_BME680.getPress();
-            UserVar[event->BaseVarIndex + 3] = JS_BME680.getTVoc();
 
+            //--- debug-swithed on?
+            bool use_TVocFiltered = false; 
+            if (PCONFIG(2) != 0) 
+            {
+              //--- switch debugging on 
+              use_TVocFiltered = (uint8_t) PCONFIG(2);             
+            }
+            if (use_TVocFiltered) 
+            {
+              addLog(LOG_LEVEL_INFO, F("BME680-Read: get filtered value."));  
+              UserVar[event->BaseVarIndex + 3] = JS_BME680.getTVocFiltered();                      //JS_BME680.getTVoc();
+            }
+            else
+            {
+              addLog(LOG_LEVEL_INFO, F("BME680-Read: get raw value."));  
+              UserVar[event->BaseVarIndex + 3] = JS_BME680.getTVoc();
+            }
+            //-- done
             success = true;
             break;
         }
