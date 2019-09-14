@@ -62,9 +62,6 @@
     
     GDATA_TYP gdata;   
 
-
-
-
 // //----------------------------------------------------------------------  
 // void JS_BME680Class::set_bme680_filtered_output(bool enable)
 // {
@@ -105,7 +102,7 @@ void JS_BME680Class::set_bme680_device_address(uint8_t addr)
 //----------------------------------------------------------------------
 JS_BME680Class::JS_BME680Class()
 {
-    do_begin(); 
+    //do_begin(); 
 }
 //----------------------------------------------------------------------
 bool   JS_BME680Class::isIAQValid()
@@ -131,13 +128,13 @@ float JS_BME680Class::getHum(void)
 float JS_BME680Class::getAlt(void)
 {
     //return (gdata.fAlt) ; 
-    return (1.0 - pow((float)gdata.fPress / 100.0f / BME680_SEALEVEL, 0.190284)) * 287.15 / 0.0065;
+    return (1.0 - pow((float)bme680.pressure / 100.0f / BME680_SEALEVEL, 0.190284)) * 287.15 / 0.0065;
 }
 //----------------------------------------------------------------------
 float JS_BME680Class::getCalibAlt()
 {
     //return (gdata.fAltCalib) ; 
-    return (1.0 - pow((float) gdata.fPress / BME680_SEALEVEL, 0.190284)) * 287.15 / 0.0065;
+    return (1.0 - pow((float) bme680.pressure / BME680_SEALEVEL, 0.190284)) * 287.15 / 0.0065;
 }
 //----------------------------------------------------------------------
 float JS_BME680Class::getGasRes(void)
@@ -150,15 +147,24 @@ float JS_BME680Class::getSeaLevel()
     return ((float) BME680_SEALEVEL) ; 
 }
 //----------------------------------------------------------------------
-float   JS_BME680Class::getTVoc(void)
+// float JS_BME680Class::readSeaLevel(float altitude)
+// {
+//   return (bme680_data.pressure / pow(1.0 - (altitude / 44330.0), 5.255));
+// }
+//----------------------------------------------------------------------
+float JS_BME680Class::getTVoc(void)
 {
     if (useFilteredTvocOutput)
     {
        return (gdata.fTvocEst) ; 
+        if(useArduinoDebugOutput)
+         Serial.println(F("\tJS_BME680  retuns gdata.fTvocEst" ));          
     }
     else
     {
        return (gdata.fTvoc) ; 
+       if(useArduinoDebugOutput)
+          Serial.println(F("\tJS_BME680  retuns gdata.fTvoc" ));            
     }       
 }
 //----------------------------------------------------------------------
@@ -245,9 +251,10 @@ void JS_BME680Class::getBme680Readings()
 
     if (r == 0) 
     {
-      #ifdef BME680_DEBUG
+      if (useArduinoDebugOutput)
+      {
         Serial.println(F("\tJS_BME680.resitance beeing zero! First Reading?" ));        
-      #endif
+      }
 
       return;      //--- first reading !=0 accepted, 0 is invalid   
     }
@@ -271,9 +278,10 @@ void JS_BME680Class::getBme680Readings()
     
     if (!bme680VocValid ) 
     {
-      #ifdef BME680_DEBUG
+      if (useArduinoDebugOutput)
+      {
         Serial.print(F("\tJS_BME680.bme680VocValid not ready! Wait about 300 sec (5 min) to warm up ... " ));  Serial.println( ( (300000 - millis() ) / 1e3), 0 ); 
-      #endif
+      }
       return;
     }
     
