@@ -88,4 +88,5 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 Are found in \dist-folder of EspEasy.
 
 <h2>Contribution</h2>
-Every Contribution to this repository is highly appriciated! Don't fear to create pull requests which enhance or fix the library as ultimatly you are going to help everybody.
+Every Contribution to this repository will be highly appreciated! 
+Don't fear to create pull requests which enhance or fix the library as ultimatly you are going to help everybody.
