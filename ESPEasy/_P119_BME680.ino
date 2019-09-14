@@ -75,7 +75,30 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
         strcpy_P(ExtraTaskSettings.TaskDeviceValueNames[3], PSTR(PLUGIN_VALUENAME4_119));
         break;
       }
+    //-----------------------------------------------
+    // --- Init is performed during first read call !
+    //-----------------------------------------------
+    // case PLUGIN_INIT: 
+    // {
 
+    //     //--- start measuring 
+    //     JS_BME680.do_begin(); 
+
+    //     Plugin_119_init = true; 
+
+    //     addLog(LOG_LEVEL_INFO, F("PLUGIN_INIT: JS_BME680 : ready + initialized!"));
+    //     serial.println(F("PLUGIN_INIT: JS_BME680 : ready + initialized!")); 
+  
+    //     success = true;
+    //     break;
+         
+    //     // } else {
+    //     //clearPluginTaskData(event->TaskIndex);
+    //   }
+    //   break;
+    // }
+
+    // --- on load configuration dialog
     case PLUGIN_WEBFORM_LOAD:
       {        
         byte choice = Settings.TaskDevicePluginConfig[event->TaskIndex][0];
@@ -107,6 +130,7 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
         break;
       }
 
+    // --- on submit on configuration dialog
     case PLUGIN_WEBFORM_SAVE:
       {
         //--- get int config values
@@ -148,11 +172,14 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
         break;
       }
 
+    //--- on read interal set in configuration dialog
     case PLUGIN_READ:
       {
+        //--- see if (Plugin_119_init) below 
+        //--- here first start with init! Plugin_119_init = false
         if (!Plugin_119_init)
         {
-            addLog(LOG_LEVEL_INFO, F("BME680  : init"));
+            addLog(LOG_LEVEL_INFO, F("PLUGIN_READ - BME680  : init"));
 
             Plugin_119_init = true; 
 
@@ -233,50 +260,57 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
             //--- start measuring 
             JS_BME680.do_begin(); 
 
-			      addLog(LOG_LEVEL_INFO, F("JS_BME680 : ready + initialized!"));
+			      addLog(LOG_LEVEL_INFO, F("JS_BME680-Read : ready + not initialized code done! do_begin called"));
+            
+            bool debugEnabled = (uint8_t) PCONFIG(6);
+            if (debugEnabled)
+              Serial.println(F("PLUGIN_INIT: JS_BME680 : ready + initialized!"));
 			
             success = true;
             break;
         }
-/*
+        //--- this code is done by having initialized BME680 on first read and not on instanciating class object! 
+        //--- is established after 2nd Reading, after initialize with do_begin()-method. 
+        //--- using above set parameters as as bme680 startup!
         if (Plugin_119_init)
         {
-            if (! JS_BME680.do_bme680_measurement()) {
-              addLog(LOG_LEVEL_ERROR, F("BME680 : Failed to perform reading!"));
-              success = false;
-              break;
-            }
-*/ 
+              JS_BME680.do_bme680_measurement();  
+
+              addLog(LOG_LEVEL_ERROR, F("BME680-Read :  performed reading!"));              
+              bool debugEnabled = (uint8_t) PCONFIG(6);
+              if (debugEnabled) 
+                Serial.println(F("PLUGIN_Read: JS_BME680 : init done, measure!"));
+
 			
-            //--- put your main code here, to run repeatedly:
-            static unsigned long baseIntervall = JS_BME680.get_bme680Interval(); 
-            unsigned long currentMillis = millis();
-          
+            // //--- put your main code here, to run repeatedly:
+            // static unsigned long baseIntervall = JS_BME680.get_bme680Interval(); 
+            // unsigned long currentMillis = millis();          
             //---bme680 data screen added
             // if (currentMillis - prevTime > baseIntervall) 
             // {   
               // --- ca. alle 10 Sekunden eine Messung aller Messgroessen      
               //JS_BME680.do_bme680_measurement();
             //   prevTime = currentMillis; 
-            // }
-          
-
+            // }          
             UserVar[event->BaseVarIndex + 0] = JS_BME680.getTemp(); 
             UserVar[event->BaseVarIndex + 1] = JS_BME680.getHum();
             UserVar[event->BaseVarIndex + 2] = JS_BME680.getPress();
             UserVar[event->BaseVarIndex + 3] = JS_BME680.getTVoc();
 
-        //}
+            success = true;
+            break;
+        }
 
         success = true;
         break;
-      }
+      } //--- case pluginread
 
       case PLUGIN_ONCE_A_SECOND:
       {
         //code to be executed once a second. Tasks which do not require fast response can be added here
+        // https://ae-bst.resource.bosch.com/media/_tech/media/application_notes/BST-BME680-AN014.pdf , page 10
         cycleCounter ++; 
-        if (cycleCounter >= 10)
+        if (cycleCounter >= 12)
         {
           JS_BME680.do_bme680_measurement();
           cycleCounter = 0; 
