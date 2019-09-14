@@ -29,6 +29,7 @@ These additional bold libraries are needed for using BME680-Sensor in ESPEasy \l
 <br>**Adafruit_Sensor**
 
 <u>These were part of the regular distribution:</u>
+<small>
 <br>Adafruit_Motor_Shield_V2
 <br>Adafruit_MPR121
 <br>Adafruit_NeoPixel
@@ -58,7 +59,7 @@ These additional bold libraries are needed for using BME680-Sensor in ESPEasy \l
 <br>SerialDevices
 <br>SparkFun_APDS-9960_Sensor_Arduino_Library
 <br>TinyGPSPlus-1.0.2
-
+</small>
 <h2>Requirements</h2>
 Breakout-Board @I2C-address 0x76
 Regular ESP8266-Board as nodeMCU or Wemos D1+D2 mini
