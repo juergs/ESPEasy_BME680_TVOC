@@ -39,6 +39,26 @@ unsigned long 	prevTime  = 0;
 
 boolean Plugin_119_init = false;
 
+
+// UDP - Multicast declarations
+WiFiUDP udp; 
+IPAddress ipMulti(239, 255, 255, 250);    // site-local
+unsigned int portMulti = 2085;            // port
+char packetIn[255];                       // UDP in-buffer
+char packetOut[512];                      // UPD out-buffer
+
+void sendUdpMessage(char* msg) 
+{
+  if (WiFi.status() == WL_CONNECTED && strlen(msg) != 0) {
+    snprintf(packetOut, sizeof(packetOut), "T:IAQC;FW:1.0;ID:%06X;IP:%s;R:%d;%s", ESP.getChipId(), WiFi.localIP().toString().c_str(), WiFi.RSSI(), msg);
+    DEBUG_PRINT(packetOut);
+    udp.beginPacketMulticast( ipMulti, portMulti, WiFi.localIP() );
+    udp.println(packetOut);
+    udp.endPacket();
+    strcpy(msg, "");
+  };
+};
+
 boolean Plugin_119(byte function, struct EventStruct *event, String& string)
 {
   boolean success = false;
@@ -128,6 +148,11 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
 
         addFormCheckBox(F("Debug output enable"), F("plugin_119_BME680_enable_debug_output"), PCONFIG(6) );
         addFormNote(F("Use Arduino-Serial-Monitor on right COM-Port!"));
+
+        //------------
+        addFormSubHeader(F("Communication options"));
+        addFormCheckBox(F("UDP slink transmission enable"), F("plugin_119_BME680_enable_slink"), PCONFIG(7) );
+        
         success = true;
         break;
       }
@@ -169,6 +194,17 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
         {
           PCONFIG(6) = 0;
         }
+
+
+        if (isFormItemChecked( F("plugin_119_BME680_enable_slink")) )
+        {
+          PCONFIG(7) = 1;
+        }
+        else
+        {
+          PCONFIG(7) = 0;
+        }
+        
           
         success = true;
         break;
@@ -321,6 +357,65 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
               addLog(LOG_LEVEL_INFO, F("BME680-Read: get raw value."));  
               UserVar[event->BaseVarIndex + 3] = JS_BME680.getTVoc();
             }
+
+            bool use_slink = false; 
+            if (PCONFIG(7) != 0) 
+            {
+              //--- switch debugging on 
+              use_slink = (uint8_t) PCONFIG(7);             
+            }
+            
+            //--- send UDP-Message to fhem 
+            char bme680Msg[128];   
+            char str_temp[6];
+            char str_hum[6];
+            char str_absHum[6];
+            char str_dewPoint[6];
+            char str_pressure[16];
+            //char str_altitude[8];
+            char str_tVoc[8];
+            char str_gas[8];
+            char str_r[6];
+            char str_filtered[6]; 
+            char str_ratio[6]; 
+            char str_base[6];
+                        
+            //--- using udp transmission (once every minute)
+            // @fhem use these additional perl modules: https://github.com/herrmannj/AirQuality/tree/master/FHEM
+            if (use_slink) 
+            {
+              dtostrf(JS_BME680.getTemp(), 4, 2, str_temp);
+              dtostrf(JS_BME680.getHum(), 4, 2, str_hum);
+              dtostrf(0, 4, 2, str_absHum);
+              dtostrf(0, 4, 2, str_dewPoint);
+              dtostrf(JS_BME680.getPress(), 3, 1, str_pressure);
+              dtostrf(JS_BME680.getGasRes(), 3, 1, str_gas);
+              dtostrf(JS_BME680.getTVocFiltered(), 1, 0, str_tVoc);   
+              dtostrf(0.0, 1, 0, str_r);      //--- unused
+              dtostrf(0.0, 1, 0, str_filtered);  //--- unused   
+              dtostrf(1.0, 1, 0, str_ratio);   //--- unused
+              dtostrf(1.0, 1, 0, str_base);   //--- unused              
+              
+              //---  prepare to send UDP-message to fhem
+              snprintf(bme680Msg
+               , sizeof(bme680Msg)
+               , "F:THPV;T:%s;H:%s;AH:%s;D:%s;P:%s;V:%s;R:%lu;DB:%lu;DF:%s;DR:%s;"
+               , str_temp
+               , str_hum
+               , str_absHum
+               , str_dewPoint
+               , str_pressure
+               , str_tVoc
+               , str_r
+               , str_base
+               , str_filtered
+               , str_ratio);
+  
+               sendUdpMessage(bme680Msg); 
+  
+               addLog(LOG_LEVEL_INFO, bme680Msg);  
+            }
+            
             //-- done
             success = true;
             break;
