@@ -321,7 +321,7 @@ void JS_BME680Class::getBme680Readings()
       Serial.print(F("\t Resistance (raw):\t")); Serial.println(r); 
       Serial.print(F("\t Resistance (filt.):\t")); Serial.println(resFiltered);       
       Serial.print(F("\t Temp:\t\t\t")); Serial.println(t);
-      Serial.print(F("\t Hum:\t\t\t")); Serial.println(a);
+      Serial.print(F("\t Hum:\t\t\t")); Serial.println(h);
       Serial.print(F("\t Press:\t\t\t")); Serial.println(p);
       Serial.print(F("\t Dewpoint:\t\t")); Serial.println(d);
       Serial.print(F("\t Alt:\t\t\t")); Serial.println(getAlt());   
