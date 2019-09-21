@@ -119,5 +119,5 @@ If you're not automatically taken to the log-in page, browse to 192.168.4.1<br>
 6. Reconnect to your WiFi and enter IP adress shown on previous screen    <br>
     
 <h2>Contribution</h2>
-Every Contribution to this repository will be highly appreciated! 
+Every Contribution to this repository will be highly appreciated! <br>
 Don't fear to create pull requests which enhance or fix the library as ultimatly you are going to help everybody.
