@@ -91,7 +91,9 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 <br>
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/BME680_IAQ_vs_TVOC.png" height="500"/>    
 <br>
-    
+<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/3_mal_Slink_vs_1_mal_IAQpng.png" height="500"/>    
+<br>
+
 <h2>Upload-Tools</h2>
 Are found in \dist-folder of EspEasy.
 
