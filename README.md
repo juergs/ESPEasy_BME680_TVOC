@@ -3,6 +3,7 @@
 <h4>Special adapted ESPEasy-Version for BME680-Measurement of TVOC in [ppm].<br>
 Using a modified <code><b><em>_P119_BME680.ino</em></b></code>-Version as replacement. (source: Playground) <br>
 Added UDP SLINK send feature.
+BME680 TVOC-reading <u>not</u> resitance!
 </h4>
 
 
