@@ -94,7 +94,7 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/3_mal_Slink_vs_1_mal_IAQpng.png" height="500"/>    
 <br>
 <br>
-<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/bme680.gif" height="500"/>    
+<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/bme680.gif" height="300"/>    
 <br>
 
 <h2>Upload-Tools</h2>
