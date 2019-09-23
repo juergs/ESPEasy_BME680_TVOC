@@ -1,3 +1,5 @@
+See: https://github.com/juergs/ESPEasy_BME680_TVOC/tree/master/lib for newer implementation!
+
 # js_BME680_Library without BSEC stuff, delivering IAQ by hermannj's tVOC(iaq) aquiring algoritm 
 The BME680 precision sensor from Bosch SensorTec can measure humidity with ±3% accuracy, barometric pressure with ±1 hPa absolute accuracy, and temperature with ±1.0°C accuracy. 
 Because pressure changes with altitude, and the pressure measurements are so good, you can also use it as an altimeter with  ±1 meter or better accuracy!
