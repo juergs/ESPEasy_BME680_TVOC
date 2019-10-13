@@ -96,7 +96,7 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 <br>
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/bme680.gif" height="300"/>    
 <br>
-<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/Alle Werte - Grafana.png" height="300"/>        
+<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/Alle Werte - Grafana.png" height="500"/>        
 <br>    
 
 <h2>Upload-Tools</h2>
