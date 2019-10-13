@@ -220,35 +220,30 @@ void JS_BME680Class::getBme680Readings()
     };
 
     //--- first stage measurements
-    float     t = bme680.temperature + param.t_offset;
-    
-    float     h = bme680.humidity + param.h_offset;
-    
+    float     t = bme680.temperature + param.t_offset;    
+    float     h = bme680.humidity + param.h_offset;    
     float     a = absHum(t, h);
-    
     aF = (aF == 0 || a < aF)?a:aF + 0.2 * (a - aF);
-    
-    float     d = dewPoint(t, h);
-    
-    float     p = bme680.pressure / 100.0F;
-    
+    float     d = dewPoint(t, h);    
+    float     p = bme680.pressure / 100.0F;    
     uint32_t  r = bme680.gas_resistance; // raw R VOC
 
     #define SEALEVELPRESSURE_HPA (1013.25)
     
+	gdata.fTemp   = t; 
+	gdata.fHum    = h; 
+	gdata.fPress  = p;       
+	gdata.fGas    = r;  
+	gdata.fAbsHum = a; 
+
     if (!bme680VocValid )
     {    
       //--- invalid tvoc reading
       _isValidIaq = false; 
-      gdata.fTemp   = t; 
-      gdata.fHum    = h; 
-      gdata.fPress  = p;       
-      gdata.fGas    = r;  
-      gdata.fAbsHum = a; 
       gdata.fTvoc   = 0.0 ; 
       gdata.fTvocEst = 0.0; 
     }
-
+	
     if (r == 0) 
     {
       if (useArduinoDebugOutput)
