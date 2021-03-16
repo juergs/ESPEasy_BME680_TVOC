@@ -33,7 +33,7 @@
     #define BME680_DEBUG                // adafruits internal debug switch, no throughput to Adafruit_BME680 
     #define HAS_BME680MCU       false   //--- serial interfacing
     #define HAS_BME680I2C       true    //--- hard wired i2c interface, not spi 
-    #define BME680_SEALEVEL     1015
+    #define BME680_SEALEVEL     1013.25 //default value of 1013.25 hPa  
     
     /** BME680 I2C addresses */
     #define BME680_I2C_ADDR_PRIMARY		UINT8_C(0x76)   // SDO = GND  pemue-adapter-board
@@ -58,7 +58,6 @@
 
             //--- global Constructor                       
             JS_BME680Class();
-            //~JS_BME680Class();
 
             //--- public methods 
             void            do_begin();
@@ -68,8 +67,6 @@
             unsigned long   get_bme680Interval(); 
 
             void            set_bme680_device_address(uint8_t addr) ;
-
-            //void            set_bme680_filtered_output(bool enable); 
 
             void            set_bme680_offset_temp(float toffset); 
 
@@ -97,10 +94,6 @@
 
             String          getFloatValueAsString(float value);   
             
-            //void            enablePlotOutput(bool state);  
-
-            //void            enableDebugOutput(bool val);               
-
         private:        
             
             //--- internal
