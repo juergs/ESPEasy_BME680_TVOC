@@ -3,9 +3,10 @@
 <h4>Special adapted ESPEasy-Version for BME680-Measurement of TVOC as CO2 equivalent.<br>
 Using a modified <code><b><em>_P119_BME680.ino</em></b></code>-Version as replacement. (source: Playground) <br>
 Added UDP SLINK send feature. (BME680 TVOC-reading not resitance!)
+
 For FHEM slink Transmission via UDP, some additional Perl modules are needed. Grab them there: https://github.com/herrmannj/AirQuality/tree/master/FHEM
 
-Or use MQQT for transmission.
+Or use MQTT for transmission.
 </h4>
 
 
