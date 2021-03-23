@@ -1,6 +1,6 @@
 # ESPEasy_BME680_TVOC
 <h2>ESPEasy_BME680_TVOC without need of proprietary BSEC static lib.</h2>
-<h4>Special adapted ESPEasy-Version for BME680-Measurement of TVOC in [ppm].<br>
+<h4>Special adapted ESPEasy-Version for BME680-Measurement of TVOC.<br>
 Using a modified <code><b><em>_P119_BME680.ino</em></b></code>-Version as replacement. (source: Playground) <br>
 Added UDP SLINK send feature. (BME680 TVOC-reading not resitance!)
 </h4>
