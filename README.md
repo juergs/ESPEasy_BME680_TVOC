@@ -84,7 +84,6 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 * SPIFFS settings -> from "none" to minimal "1M" <br>
 * reset ESP two times.<br>
 <h2>Pictures<h2>
-<img src="https://cdn-shop.adafruit.com/970x728/3660-00.jpg" height="300"/>
 <br>
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/ESP_Easy_BME680_Konfiguration.png" height="300"/>
 <br>
