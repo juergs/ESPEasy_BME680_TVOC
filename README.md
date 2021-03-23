@@ -7,6 +7,10 @@ Added UDP SLINK send feature. (BME680 TVOC-reading not resitance!)
 For FHEM slink transmission feature via UDP, some additional Perl modules are needed. Grab them there: https://github.com/herrmannj/AirQuality/tree/master/FHEM
 
 Or use MQTT for transmission. InfluxDB, Grafana ...
+https://github.com/Nilhcem/home-monitoring-grafana/
+https://github.com/Nilhcem/home-monitoring-grafana/blob/master/02-bridge/main.py
+
+
 </h4>
 
 
