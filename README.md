@@ -8,6 +8,8 @@ For FHEM slink transmission feature via UDP, some additional Perl modules are ne
 
 Or use MQTT for transmission. InfluxDB, Grafana ...
 
+[!HowTo in FHEM-Forum]https://forum.fhem.de/index.php/topic,78619.msg976673.html#msg976673)
+
 https://github.com/Nilhcem/home-monitoring-grafana/
 
 https://github.com/Nilhcem/home-monitoring-grafana/blob/master/02-bridge/main.py
