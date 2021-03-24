@@ -14,7 +14,7 @@ from influxdb import InfluxDBClient
 
 INFLUXDB_ADDRESS = '192.168.x.y'
 INFLUXDB_USER = '<user>'
-INFLUXDB_PASSWORD = 'please!p'
+INFLUXDB_PASSWORD = 'passw0rd'
 INFLUXDB_DATABASE = 'fhem_bme680'
 
 MQTT_ADDRESS = '192.168.x.y'
