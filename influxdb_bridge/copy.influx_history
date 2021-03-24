@@ -1,0 +1,122 @@
+create database fhem_bme680
+create database fhem_test
+exit
+show databases
+use fhem_680
+use fhem_bme680
+show measurements
+selct * from measurements
+explain select * from BME680_tvoc
+exit
+use fhem_bme680
+show measurements
+select * from TVOC
+select * from Temperature
+top
+exit
+use fhem_test
+select * from measurement
+select * from MEASUREMENTS
+select * from measurements
+select * from MEASUREMENTS;
+select TVOC from MEASUREMENTS
+use fhem_bme680
+select * from MEASUREMENTS
+select * from measurement
+select * from
+select value from TVOC
+select * from measurements
+select table from measurements
+show measurements
+use fhem_test
+show measurements
+select from TVOC
+select * from TVOC
+show measurements
+show databases
+use fhem_test
+show measurements
+slect * from iaq
+select * from iaq
+select top 10 from iaq 
+select timestamp from iaq 
+select time from iaq 
+select time,value from iaq 
+select time,value from iaq order by time asc
+select time,value from iaq
+SELECT mean("value") FROM "pressure" WHERE time >= now() - 2d GROUP BY time(2m) fill(null)
+SELECT value FROM "pressure" WHERE time >= now() - 2d GROUP BY time(2m) fill(null)
+SELECT value FROM "pressure" WHERE time >= now() - 2d
+sele from 
+explain select time,value from prssure
+explain select time,value from pressure
+select time,value,location from pressure
+select value,location from pressure
+show measurement
+show measurements
+slect  * from Pressure
+select  * from Pressure
+select  * from Pressure where time <= now() -0.1d
+select  * from Pressure where time > = now()-1
+select  * from Pressure where time > = now()-1d
+select  * from Pressure where time > = now()-1day
+select  * from Pressure where time > = now()-1 day
+select  * from Pressure where time > = now() - 10m
+select  * from Pressure where time > = Now() - 10m
+select  * from Pressure where time > = NOW() - 10m
+select  * from Pressure where time >= NOW() - 10m
+select  * from Pressure where time >= NOW() - 100m
+select distinct site_name) from pressure
+select distinct site_name from pressure
+select distinct site from pressure
+select distinct s* from pressure
+select distinct site_name from pressure
+select distinct ("site_name") from pressure
+select distinct "site_name" from pressure
+select distinct value from pressure
+select distinct value, site_name from pressure
+select value, site_name from pressure
+select distinct site_name from pressure
+select distinct site_name from Pressure
+select value, site_name from pressure
+select distinct value from Pressure
+select distinct value from ressure
+select distinct value from Pressure
+select distinct value from pressure
+select * from humidity where site_name="CUL_TX_106"
+select * from humidity
+select * from humidity where name = "CUL_TX_106"
+select * from humidity wheresite_name  = "CUL_TX_106"
+select * from humidity where site_name  = "CUL_TX_106"
+select * from humidity where name  = "CUL_TX_106"
+select * from humidity where time >= now - 10m
+select * from humidity where time >= now() - 10 m
+select * from humidity where time >= now() - 10m
+select * from humidity where site_name = "CUL_TX_106"
+select time,value  from humidity where site_name = "CUL_TX_106"
+select time,value  from humidity where site_name like "CUL_TX_106"
+select time,value  from humidity where site_name = 'CUL_TX_106'
+select time,site_name,value  from humidity where site_name = 'CUL_TX_106'
+show measurements
+select distinct site_name from BME680_tvoc 
+select distinct site_name from TVOC 
+select time, value, site_name from TVOC 
+select time, value, site_name from bme680_tvoc
+show measurements
+select time, value, site_name from BME680_tvoc
+exit
+show measurements
+show databases
+use fhem_bme680
+show measurements
+select * from TVOC
+select timestamp, value , location  from TVOC
+show databases
+use fhem_test
+show measurements
+select * from BME680_tvoc
+select * from BME680_tvoc where location ='SLinkIAQC_633D09'
+select * from BME680_tvoc where site_name ='SLinkIAQC_633D09'
+exit
+show databases
+exit
