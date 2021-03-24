@@ -4,7 +4,7 @@
 Using a modified <code><b><em>_P119_BME680.ino</em></b></code>-Version as replacement. (source: Playground) <br>
 Added UDP SLINK send feature. (BME680 TVOC-reading not resitance!)
 
-For FHEM slink transmission feature via UDP, some additional Perl modules are needed. Grab them:[!here](https://github.com/herrmannj/AirQuality/tree/master/FHEM)
+For FHEM slink transmission feature via UDP, some additional Perl modules are needed. Grab them: [here](https://github.com/herrmannj/AirQuality/tree/master/FHEM)
 
 Or use MQTT for transmission. InfluxDB, Grafana ...
 
