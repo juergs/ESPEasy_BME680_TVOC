@@ -92,9 +92,9 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 * in order to achieve this (as admin): <b>mklink /D libraries D:\Temp\ESPEasy-mega.org\lib</b> with command prompt in default Arduino-project-folder <br>
 * SPIFFS settings -> from "none" to minimal "1M" <br>
 * reset ESP two times.<br>
-<h2>Pictures<h2>
+<h2>Pictures</h2>
 <br>
-    Comparison between BSEC and TVOC. TVOC's baseline is at the moment not so effective as BSEC.  
+Comparison between BSEC and TVOC. TVOC's baseline is at the moment not so effective as BSEC.  
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/V2_vs_BSEC_2.png" heigt=300/>
 <br>
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/ESP_Easy_BME680_Konfiguration.png" height="300"/>
