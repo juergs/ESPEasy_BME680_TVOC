@@ -94,6 +94,8 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 * reset ESP two times.<br>
 <h2>Pictures<h2>
 <br>
+<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/V2_vs_BSEC_2.png" heigt=300/>
+<br>
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/ESP_Easy_BME680_Konfiguration.png" height="300"/>
 <br>
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/BME680_Me%C3%9Fwerte_mit_Kalman_Filter_4.png" height="300"/>
