@@ -94,7 +94,10 @@ Copy original \src-Ffolder to \ESPEasy and use this Folder for an Arduino-compil
 * reset ESP two times.<br>
 <h2>Pictures</h2>
 <br>
-Comparison between BSEC and TVOC. TVOC's baseline is at the moment not so effective as BSEC. Filtering smoothes measured values, but with delay on fast value changes. 
+Comparison between BSEC and TVOC. TVOC's baseline correction is at the moment not so effective as BSEC. 
+
+Filtering smoothes measured values, but reacting some with delay on fast value changes. (May be switched off in ESPEasy, if needed.) 
+
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/V2_vs_BSEC_2.png" heigt=300/>
 <br>
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/ESP_Easy_BME680_Konfiguration.png" height="300"/>
