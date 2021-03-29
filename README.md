@@ -66,8 +66,11 @@ Comparison between BSEC and TVOC. TVOC's baseline correction is at the moment no
 
 Filtering smoothes measured values, but reacting some with delay on fast value changes. (May be switched off in ESPEasy, if needed.) 
 
-<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/V2_vs_BSEC_2.png" heigt=300/>
+<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/V2_vs_BSEC_2.png" heigt=250/>
 <br>
+Offset-drift-compensation aka baseline-correction is not implemented yet. May be in further version.( > V2).
+<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/Longtermbehavior_V1_BSEC.png" heigth= 250 />
+</ br>
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/ESP_Easy_BME680_Konfiguration.png" height="300"/>
 <br>
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/BME680_Me%C3%9Fwerte_mit_Kalman_Filter_4.png" height="300"/>
