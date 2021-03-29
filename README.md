@@ -70,9 +70,9 @@ Filtering smoothes measured values, but reacting some with delay on fast value c
 <br>
 Offset-drift-compensation aka baseline-correction is not implemented yet. Term (3) shows behavior after reset.
 Impressive, how near the TVOC-curve fits to BSEC-algorithm. (Even with Kalmanfilter/Lowpass-filtering!)
-<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/Longtermbehavior_V1_BSEC.png" heigth= 250 />
+<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/Longtermbehavior_V1_BSEC.png" heigth= 200 />
 </ br>
-<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/ESP_Easy_BME680_Konfiguration.png" height="300"/>
+<img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/ESP_Easy_BME680_Konfiguration.png" height="200"/>
 <br>
 <img src="https://github.com/juergs/ESPEasy_BME680_TVOC/blob/master/BME680_Me%C3%9Fwerte_mit_Kalman_Filter_4.png" height="300"/>
 <br>
