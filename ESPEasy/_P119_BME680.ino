@@ -1,3 +1,5 @@
+#include "_Plugin_Helper.h"
+#ifdef USES_P119
 //#######################################################################################################
 //#################### Plugin 120 BME680 I2C Temp/Hum/Barometric/Pressure/Gas Resistence Sensor  ########
 //#######################################################################################################
@@ -17,9 +19,9 @@
 
 #include <js_BME680.h>
 
-#ifndef PCONFIG
-  # define PCONFIG(n) (Settings.TaskDevicePluginConfig[event->TaskIndex][(n)])
-#endif // ifndef PCONFIG
+//#ifndef PCONFIG
+//  # define PCONFIG(n) (Settings.TaskDevicePluginConfig[event->TaskIndex][(n)])
+//#endif // ifndef PCONFIG
 
 #define PLUGIN_119
 #define PLUGIN_ID_119         119
@@ -71,7 +73,7 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
       {
         Device[++deviceCount].Number = PLUGIN_ID_119;
         Device[deviceCount].Type = DEVICE_TYPE_I2C;
-        Device[deviceCount].VType = SENSOR_TYPE_QUAD;
+        Device[deviceCount].VType = Sensor_VType::SENSOR_TYPE_QUAD;
         Device[deviceCount].Ports = 0;
         Device[deviceCount].PullUpOption = false;
         Device[deviceCount].InverseLogicOption = false;
@@ -256,7 +258,7 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
               use_Plotting = (uint8_t) PCONFIG(5);             
             }
             
-            //--- debug-swithed on?
+            //--- debug-switched on?
             bool use_Debugging = false; 
             if (PCONFIG(6) != 0) 
             {
@@ -268,7 +270,6 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
             float t_offs = 0; 
             if (PCONFIG(3) != 0) 
             {
-              //--- switch debugging on 
               t_offs = (float) PCONFIG(3);             
             }                           
             
@@ -276,7 +277,6 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
             float h_offs = 0; 
             if (PCONFIG(4) != 0) 
             {
-              //--- switch debugging on 
               t_offs = (float) PCONFIG(4);             
             }  
             
@@ -292,6 +292,7 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
 			      JS_BME680.set_bme680_device_address(use_this_i2c_adr);  // may be ommitted in case of default-address 0x76 (SDO = GND), declare in case of address 0x77 (SDO = High)      
             JS_BME680.useArduinoDebugOutput    = use_Debugging; 
             JS_BME680.useArduinoPlotOutput     = use_Plotting;
+            JS_BME680.useFilteredTvocOutput    = use_filtered_tvoc;
             JS_BME680.set_bme680_offset_hum ( h_offs); 
             JS_BME680.set_bme680_offset_temp (t_offs);
       
@@ -339,24 +340,7 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
             UserVar[event->BaseVarIndex + 0] = JS_BME680.getTemp(); 
             UserVar[event->BaseVarIndex + 1] = JS_BME680.getHum();
             UserVar[event->BaseVarIndex + 2] = JS_BME680.getPress();
-
-            //--- debug-swithed on?
-            bool use_TVocFiltered = false; 
-            if (PCONFIG(2) != 0) 
-            {
-              //--- switch debugging on 
-              use_TVocFiltered = (uint8_t) PCONFIG(2);             
-            }
-            if (use_TVocFiltered) 
-            {
-              addLog(LOG_LEVEL_INFO, F("BME680-Read: get filtered value."));  
-              UserVar[event->BaseVarIndex + 3] = JS_BME680.getTVocFiltered();                      //JS_BME680.getTVoc();
-            }
-            else
-            {
-              addLog(LOG_LEVEL_INFO, F("BME680-Read: get raw value."));  
-              UserVar[event->BaseVarIndex + 3] = JS_BME680.getTVoc();
-            }
+            UserVar[event->BaseVarIndex + 3] = JS_BME680.getTVoc();
 
             bool use_slink = false; 
             if (PCONFIG(7) != 0) 
@@ -390,7 +374,7 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
               dtostrf(0, 4, 2, str_dewPoint);
               dtostrf(JS_BME680.getPress(), 3, 1, str_pressure);
               dtostrf(JS_BME680.getGasRes(), 3, 1, str_gas);
-              dtostrf(JS_BME680.getTVocFiltered(), 1, 0, str_tVoc);   
+              dtostrf(JS_BME680.getTVoc(), 1, 0, str_tVoc);   
               dtostrf(0.0, 1, 0, str_r);      //--- unused
               dtostrf(0.0, 1, 0, str_filtered);  //--- unused   
               dtostrf(1.0, 1, 0, str_ratio);   //--- unused
@@ -443,4 +427,4 @@ boolean Plugin_119(byte function, struct EventStruct *event, String& string)
   return success;
 }
 
-//#endif
+#endif
